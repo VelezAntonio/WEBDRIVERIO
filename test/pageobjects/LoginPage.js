@@ -1,10 +1,9 @@
 import { $ } from '@wdio/globals'
-import Page from './page.js';
-
+import HomePage from './HomePage.js';
 /**
  * sub page containing specific selectors and methods for a specific page
  */
-class LoginPage extends Page {
+export default class LoginPage extends HomePage {
     /**
      * define selectors using getter methods
      */
@@ -18,6 +17,9 @@ class LoginPage extends Page {
 
     get btnSubmit () {
         return $('button=LOGIN');
+    }
+    get btnAccount() {
+        return $('.__account-menu-button');
     }
 
     /**
@@ -37,5 +39,3 @@ class LoginPage extends Page {
         return super.open('login');
     }
 }
-
-export default new LoginPage();
